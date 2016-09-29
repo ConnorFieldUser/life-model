@@ -20,22 +20,24 @@ class Fighter:
 
 class Royce_Gracie(Fighter):
     def __init__(self):
-        super().__init__()  # ?
+        # super().__init__()  # ?
         self. name = "Royce"
         self.belt = belts['black']
         self.weight = weight_classes['welter']
         self.strategy = strategies['agressive_submissions']
         self.training = 10
+        self.odds = 0
 
 
 class Me(Fighter):
     def __init__(self):
-        super().__init__()  # ?
+        # super().__init__()  # ?
         self.name = "Connor"
         self.belt = belts['blue']
         self.weight = weight_classes['light']
         self.strategy = strategies['chokes_back']
         self.training = 3
+        self.odds = 0
 
 
 class Match:
@@ -60,22 +62,22 @@ class Match:
         for fighter in self.contestants:
             fighter.odds += fighter.training
             fighter.odds += fighter.belt
-            fighter.odds += fighter.weight_classes
+            fighter.odds += fighter.weight
 
     def sim(self):
-        if contestants[0].odds > contestants[1].odds:
-            print("The winner is: {}".formatcontestants[0].name)
-        elif contestants[1].odds > contestants[0].odds:
-            print("p2")
+        if self.contestants[0].odds > self.contestants[1].odds:
+            print("\nThe winner is: {}".format(self.contestants[0].name))
+        elif self.contestants[1].odds > self.contestants[0].odds:
+            print("\nThe winner is: {}".format(self.contestants[1].name))
         else:
             print("Draw")
 
 
+print("The contestants are:")
+
 fighter1 = Me()
 
 fighter2 = Royce_Gracie()
-
-print(fighter1.strategy, fighter1.belt, fighter1.weight, fighter2.strategy)
 
 
 ibjjf = Match()
@@ -85,31 +87,8 @@ ibjjf.add_contestant(fighter2)
 
 ibjjf.odds_calc()
 
-print("winner is!")
-
-
 for fighter in ibjjf.contestants:
     print(fighter.name)
 
 
-# print(ibjjf.contestants)
-
-# players pick num 1-5
-#
-# p1 num - p2 nums, / 5 = ?
-#
-# if ? == 1 or ? == 3:
-#     p1 wins
-# elif ? == 2 or ? == 4:
-#     p2 wins
-# elif ? == 0:
-#     draw
-
-# moves) may be modeled as a game in
-#  which each player picks a number from one to five.
-# Subtract the number chosen by player two from the number
-# chosen by player one, and then take the remainder modulo 5
-# of the result. Player one is the victor if the
-#  difference is one or three, and player two is the
-#  victor if the difference is two or four.
-# If the difference is zero, the game is a tie.
+ibjjf.sim()
