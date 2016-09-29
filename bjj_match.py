@@ -15,7 +15,6 @@ class Fighter:
         self.strategy = strategy
         self.training = training
         self.odds = 0
-        # self.training = training
 
 
 class Royce_Gracie(Fighter):
